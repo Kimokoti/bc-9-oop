@@ -1,2 +1,3 @@
 # bc-g-oop
-Andela OOP
+OOP Student class Implementation
+
