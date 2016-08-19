@@ -63,6 +63,7 @@ class NotesApplication(object):
         else:
             raise IndexError
 
+##Console Implementation
 
 print("Enter a Command Number to Choose Action:")
 print '''
@@ -85,12 +86,15 @@ if len(name) > 0 and type(name) == str:
             note = str(raw_input("Enter Note: "))
             if type(note) == str and len(note) > 0:
                 author1.create(note)
+
         elif command == '2':
             listing = author1.list()
             if listing != "Listing Successful":
                 print(listing)
+
         elif command == '7':
             break
+
         elif command == '3':
             try:
                 note_id = int(raw_input("Enter List Index: "))
@@ -99,12 +103,14 @@ if len(name) > 0 and type(name) == str:
                 print("The Note Id does not Exist")
             except TypeError:
                 print("Please Enter a Number for index")
+
         elif command == '4':
             search_text = raw_input("Enter Search text to Search from Notes: ")
             if len(search_text) > 0:
                 result = author1.search(search_text)
                 if result != "Found Search Text":
                     print(result)
+
         elif command == "5":
             try:
                 index = int(raw_input("Enter Index of Note to Delete: "))
@@ -114,6 +120,7 @@ if len(name) > 0 and type(name) == str:
                 print("Please Enter a Number")
             except IndexError:
                 print("The Index Entered Does not Exist")
+
         elif command == "6":
             try:
                 index = int(raw_input("Enter Index of Note to Edit: "))
@@ -124,6 +131,7 @@ if len(name) > 0 and type(name) == str:
                 print("Please Enter a Note")
             except IndexError:
                 print("Index Entered Does not Exist")
+
         else:
             print("Invalid Choice. Enter a number from 1 to 6")
 
