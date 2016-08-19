@@ -99,7 +99,7 @@ if len(name) > 0 and type(name) == str:
             except TypeError:
                 print("Please Enter a Number for index")
         elif command == '4':
-            search_text=raw_input("Enter Search text to Search from Notes: ")
+            search_text = raw_input("Enter Search text to Search from Notes: ")
             if len(search_text) > 0:
                 result = author1.search(search_text)
                 if result != "Found Search Text":
@@ -107,7 +107,7 @@ if len(name) > 0 and type(name) == str:
         elif command == "5":
             try:
                 index = int(raw_input("Enter Index of Note to Delete: "))
-                deletion=author1.delete(index)
+                deletion = author1.delete(index)
                 print(deletion)
             except TypeError:
                 print("Please Enter a Number")
