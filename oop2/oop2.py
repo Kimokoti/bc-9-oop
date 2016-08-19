@@ -71,7 +71,8 @@ print '''
     3. Get a Note
     4. Search text from a Note
     5. Delete a Note
-    6. Quit
+    6: Edit a Note
+    7. Quit
 '''
 name = str(raw_input("Enter Author Name:"))
 if len(name) > 0 and type(name) == str:
@@ -88,7 +89,7 @@ if len(name) > 0 and type(name) == str:
             listing = author1.list()
             if listing != "Listing Successful":
                 print(listing)
-        elif command == '6':
+        elif command == '7':
             break
         elif command == '3':
             try:
@@ -113,6 +114,16 @@ if len(name) > 0 and type(name) == str:
                 print("Please Enter a Number")
             except IndexError:
                 print("The Index Entered Does not Exist")
+        elif command == "6":
+            try:
+                index = int(raw_input("Enter Index of Note to Edit: "))
+                new_note = raw_input("Enter New Note: ")
+                result = author1.edit(index, new_note)
+                print(result)
+            except ValueError:
+                print("Please Enter a Note")
+            except IndexError:
+                print("Index Entered Does not Exist")
         else:
             print("Invalid Choice. Enter a number from 1 to 6")
 
