@@ -38,10 +38,10 @@ class NotesApplication(object):
                     print("Note ID: " + str(notes.index(note)))
                     print(note)
                     print("\n")
-            print("By Author "+self.author)
+                    print("By Author "+self.author)
             return "Found Search Text"
         else:
-            return "Text not Found"
+            return "Empty List"
 
     def delete(self, note_id):
         if self.notes[note_id]:
@@ -53,7 +53,7 @@ class NotesApplication(object):
     def edit(self, note_id, new_content):
         notes=self.notes
         if notes[note_id]:
-            if new_content != None or new_content != '':
+            if len(new_content.strip()) > 0 or new_content == None:
                 notes[note_id] = new_content
                 return "Editting Successful"
             else:
@@ -62,4 +62,8 @@ class NotesApplication(object):
             raise IndexError
 
 
-        
+# note5=NotesApplication("Ken")
+# note5.create("Note A")
+# note5.list()
+# note5.edit(0, "")
+# note5.list()
