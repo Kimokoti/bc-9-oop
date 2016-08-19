@@ -14,6 +14,13 @@ class oop2_tests(unittest.TestCase):
 		with self.assertRaises(TypeError):
 			note1.create(None)
 
+	def test_creation2(self):
+		"""
+		Test note is created successfully
+		"""
+		note1=NotesApplication("Brian")
+		self.assertEqual(note1.create("Created"), "Note Created",msg="Note Not Created")
+
 	def test_listing(self):
 		"""
 		test for list with content
@@ -54,7 +61,7 @@ class oop2_tests(unittest.TestCase):
 		i.e Searching for text in an empty list
 		"""
 		note3=NotesApplication("kevin")
-		self.assertEqual(note3.search("unavailable"), "Empty List", msg="The Text is not Available")
+		self.assertEqual(note3.search("unavailable"), "Empty List", msg="The List is Empty")
 
 	def test_search_method2(self):
 		"""
@@ -64,6 +71,15 @@ class oop2_tests(unittest.TestCase):
 		note3=NotesApplication("kevin")
 		note3.create("This is available")
 		self.assertEqual(note3.search("available"), "Found Search Text", msg="The Text is not Available")
+
+	def test_search_method3(self):
+		"""
+		Tests for method search(search_text)
+		i.e Searching for text that  does not exist
+		"""
+		note3=NotesApplication("kevin")
+		note3.create("First Note")
+		self.assertEqual(note3.search("available"), "Text not Found", msg="The Text is Available")
 
 	def test_delete_note(self):
 		"""

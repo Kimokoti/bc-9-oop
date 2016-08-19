@@ -39,7 +39,9 @@ class NotesApplication(object):
                     print(note)
                     print("\n")
                     print("By Author "+self.author)
-            return "Found Search Text"
+                    return "Found Search Text"
+                else:
+                    return "Text not Found"
         else:
             return "Empty List"
 
